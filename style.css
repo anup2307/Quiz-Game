@@ -10,15 +10,34 @@ header{
     padding:10px;
 }
 
-main{
+.welcome{
     text-align: center;
 }
 
 p{
-    margin: 20px 1090px;
+    margin: 20px 600px;
     width: 400px;
 }
 
-button{
+.welcome button{
     width: 50px;
+}
+
+#questions,
+#finalscore {
+    margin-left: 300px;
+}
+#questions ol{
+    margin-top: 20px;
+}
+
+#hrline{
+    margin-top: 20px;
+    width:50%
+}
+
+#submit{
+    margin-left: 20px;
+    background-color: purple;
+    border-radius: 5px;
 }

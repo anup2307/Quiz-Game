@@ -13,11 +13,31 @@
         <h4 id="h4tag">Time:0</h4>
     </header>
     <main>
-        <h1>Coding Quiz Challenge</h1>
-        <p id ="ptag">
-            Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your scoretime by 10 seconds!
-        </p>
-        <button id=start type="button">Start</button>
+        <section class = "welcome">
+            <h1 id="h1tag">Coding Quiz Challenge</h1>
+            <p id ="ptag">
+              Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your scoretime by 10 seconds!
+            </p>
+            <button id=start type="button">Start</button>
+        </section>
+        <section id = questions>
+            <h2 id = question></h2>
+            <ol>
+                <li><button id=option1></button></li>
+                <li><button id=option2></button></li>
+                <li><button id=option3></button></li>
+                <li><button id=option4></button></li>
+            </ol>
+            <hr id ="hrline">
+            <p id = "answertag"></p>
+        </section>
+        <section id="finalscore">
+            <h2>All done!</h2>
+            <p id="highscore"></p>
+            <label for="initials">Enter Intials:</label>
+            <input type="text" name="initial" id="initial">
+            <button id="submit">Submit</button>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
