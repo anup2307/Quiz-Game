@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    margin-left: 800px;
+    margin-top: 100px;
+}
+
+ol{
+    margin-top: 20px;
+}
+
+button{
+    margin-top: 20px;
+    background-color: purple;
+    padding:5px;
+    color: whitesmoke;
+}
+

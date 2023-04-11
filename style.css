@@ -15,7 +15,8 @@ header{
 }
 
 p{
-    margin: 20px 600px;
+    margin: 20px;
+    margin-left: 1100px;
     width: 400px;
 }
 

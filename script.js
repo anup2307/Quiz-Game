@@ -65,6 +65,14 @@ function populatevalues(){
         occurence.addEventListener('click', checkanswers);
     } );
 
+    //  var buttons=document.querySelectorAll('button[type="button1"]');
+    //  console.log(buttons);
+    //  buttons.addEventListener('click', function(event){
+    //     var buttonclick = event.target;
+    //     if (buttonclick.matches('button'))
+    //     checkanswers(event);
+    //  }
+    //  )   
 }
 
 function checkanswers(event){
@@ -104,6 +112,7 @@ function checkanswers(event){
             event.preventDefault();
             localStorage.setItem("initial",initial.value);
             localStorage.setItem("score",timeLeft);
+            window.open("file:///C:/Users/aarav/bootcamp/Homework/Quiz-Game/index1.html");
         });
     }
 }
