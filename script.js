@@ -59,6 +59,12 @@ function populatevalues(){
     option2display.setAttribute("style", "background-color:purple; width:150px; color:white; border-radius:10px");
     option3display.setAttribute("style", "background-color:purple; width:150px; color:white; border-radius:10px");
     option4display.setAttribute("style", "background-color:purple; width:150px; color:white; border-radius:10px");
+
+    document.querySelectorAll('button').forEach(occurence => {
+        console.log("hi")
+        occurence.addEventListener('click', checkanswers);
+    } );
+
 }
 
 function checkanswers(event){
@@ -93,11 +99,10 @@ function checkanswers(event){
         finalscoredisplay.style.display = "block";
         questionsdisplay.style.display = "none";
         var initial = document.querySelector("#initial");
-        console.log(initial);
-        console.log(document.querySelector("#initial"));
-        console.log(initial.value);
-        submit.addEventListener("click",function(){
-            localStorage.setItem("initial",initial);
+
+        submit.addEventListener("click",function(event){
+            event.preventDefault();
+            localStorage.setItem("initial",initial.value);
             localStorage.setItem("score",timeLeft);
         });
     }
@@ -117,9 +122,9 @@ function startquiz(){
         }
     }, 1000);
 
-    document.querySelectorAll('button').forEach(occurence => {
-        occurence.addEventListener('click', checkanswers);
-    } );
+    // document.querySelectorAll('button').forEach(occurence => {
+    //     occurence.addEventListener('click', checkanswers);
+    // } );
 }
 
 generateBtn.addEventListener("click",startquiz);
