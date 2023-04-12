@@ -11,10 +11,10 @@ orderedlist.append(li1);
 
 
 gobackbutton.addEventListener('click',function(){
-    window.open("file:///C:/Users/aarav/bootcamp/homework/Quiz-Game/index.html");
+    window.location.replace("index.html");
 })
 
 clearbutton.addEventListener('click',function(){
     li1.remove();
-    // localStorage.clear();
+    localStorage.clear();
 })

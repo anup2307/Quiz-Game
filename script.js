@@ -9,6 +9,7 @@ var option4display = document.querySelector("#option4");
 var h1tag = document.querySelector("#h1tag");
 var answerdisplay = document.querySelector("#answertag");
 var finalscoredisplay = document.querySelector("#finalscore");
+var ptagscore = document.querySelector("#highscore");
 var submit = document.querySelector("#submit");
 var timeLeft= 75;
 var i=0;
@@ -21,7 +22,7 @@ var questions = [
         {option:"Strings", value: false },
         {option:"Booleans", value: false},
         {option:"Alerts", value: true},
-        {option:"Numbers", valur:false}
+        {option:"Numbers", value:false}
     ]
     },
     {
@@ -41,6 +42,24 @@ var questions = [
             {option:"paranthesis", value:false},
             {option:"quotes",value:false}
             ]
+    },
+    {
+        question: "Inside which HTML element do we put the JavaScript?",
+        answers:[
+            {option:"scripting", value:false},
+            {option:"js", value:false},
+            {option:"script", value:true},
+            {option:"javascript", value:false}
+        ]
+    },
+    {
+        question:"How do you write 'Hello World' in an alert box?",
+        answers :[
+            {option:"msgbox('Hello World')", value:false},
+            {option:"alert('Hello World')", value:true},
+            {option:"alertbox('Hello World')", value:false},
+            {option:"msg('Hello World')", value:false}
+        ]
     }
 ]
 
@@ -48,8 +67,7 @@ questionsdisplay.style.display = "none";
 finalscoredisplay.style.display = "none";
 
 function populatevalues(){
-
-    ptagquestion.innerHTML = questions[i].question;
+      ptagquestion.innerHTML = questions[i].question;
     option1display.innerHTML= questions[i].answers[0].option;
     option2display.innerHTML=questions[i].answers[1].option;
     option3display.innerHTML=questions[i].answers[2].option;
@@ -60,19 +78,9 @@ function populatevalues(){
     option3display.setAttribute("style", "background-color:purple; width:150px; color:white; border-radius:10px");
     option4display.setAttribute("style", "background-color:purple; width:150px; color:white; border-radius:10px");
 
-    document.querySelectorAll('button').forEach(occurence => {
-        console.log("hi")
+    document.querySelectorAll('#choicelist').forEach(occurence => {
         occurence.addEventListener('click', checkanswers);
-    } );
-
-    //  var buttons=document.querySelectorAll('button[type="button1"]');
-    //  console.log(buttons);
-    //  buttons.addEventListener('click', function(event){
-    //     var buttonclick = event.target;
-    //     if (buttonclick.matches('button'))
-    //     checkanswers(event);
-    //  }
-    //  )   
+    } ); 
 }
 
 function checkanswers(event){
@@ -92,7 +100,8 @@ function checkanswers(event){
             if (i< questions.length){
                 populatevalues();
             }
-    }else{
+    }else
+        {
         timeLeft= timeLeft-10;
         document.getElementById("h4tag").innerText = "Time Left: " + timeLeft;
         answerdisplay.textContent = "Wrong";
@@ -102,17 +111,31 @@ function checkanswers(event){
             populatevalues();
         }
     }
+    
     if (i===questions.length){ 
         clearInterval(timeInterval);
         finalscoredisplay.style.display = "block";
+        ptagscore.textContent = "Your final score: " + timeLeft;
         questionsdisplay.style.display = "none";
         var initial = document.querySelector("#initial");
-
+      
         submit.addEventListener("click",function(event){
             event.preventDefault();
-            localStorage.setItem("initial",initial.value);
-            localStorage.setItem("score",timeLeft);
-            window.open("file:///C:/Users/aarav/bootcamp/Homework/Quiz-Game/index1.html");
+
+            var scorearray = {
+                initialvalue : initial.value,
+                score: timeLeft
+            }
+            localStorage.setItem("scoredetails", JSON.stringify(scorearray));
+            // var initialvalue = initial.value;
+            // var score = timeLeft;
+            // var scorearray=[];
+            // scorearray.push(initialvalue,score);
+            // localStorage.setItem("scoredetails", JSON.stringify(scorearray));
+
+            // localStorage.setItem("initial",initial.value);
+            // localStorage.setItem("score",timeLeft);
+            window.location.href="index1.html";
         });
     }
 }
@@ -130,10 +153,6 @@ function startquiz(){
           clearInterval(timeInterval);
         }
     }, 1000);
-
-    // document.querySelectorAll('button').forEach(occurence => {
-    //     occurence.addEventListener('click', checkanswers);
-    // } );
 }
 
 generateBtn.addEventListener("click",startquiz);

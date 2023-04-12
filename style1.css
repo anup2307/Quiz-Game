@@ -5,12 +5,13 @@
 }
 
 body{
-    margin-left: 800px;
+    display: flex;
+    justify-content: center;
     margin-top: 100px;
 }
 
 ol{
-    margin-top: 20px;
+    margin-top:20px;
 }
 
 button{

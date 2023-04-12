@@ -10,18 +10,32 @@ header{
     padding:10px;
 }
 
-.welcome{
-    text-align: center;
+a{
+    text-decoration: none;
+    color: black;
+}
+.welcome p{
+    margin: 20px;
+    width: 400px;
 }
 
-p{
-    margin: 20px;
-    margin-left: 1100px;
-    width: 400px;
+.welcome{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .welcome button{
     width: 50px;
+}
+
+#option1:hover,
+#option2:hover,
+#option3:hover,
+#option4:hover{
+    opacity: 0.5;
+    color:whitesmoke;
 }
 
 #questions,
@@ -41,4 +55,9 @@ p{
     margin-left: 20px;
     background-color: purple;
     border-radius: 5px;
+}
+
+#finalscore p,
+#finalscore button{
+    margin-top: 20px;
 }
