@@ -143,7 +143,7 @@ function checkanswers(event){
     
     if (i===questions.length){ 
         clearInterval(timeInterval);
-        setTimeout(displayScore, 800);
+        setTimeout(displayScore, 500);
     }
 }
 

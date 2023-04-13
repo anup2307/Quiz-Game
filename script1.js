@@ -6,6 +6,8 @@ clearbutton = document.querySelector('#clearbutton');
 var j=1;
 var scoredetails = localStorage.getItem("scoredetails");
 scoredetails = JSON.parse(scoredetails);
+console.log(scoredetails);
+if(scoredetails !== null ){
 for (var i=0; i<scoredetails.length; i+=2)
 {
     var li = document.createElement("li");
@@ -14,6 +16,7 @@ for (var i=0; i<scoredetails.length; i+=2)
     orderedlist.append(li);
     console.log(scoredetails[i] +" - " + scoredetails[j]);
     j += 2;
+}
 }
 
 gobackbutton.addEventListener('click',function(){
