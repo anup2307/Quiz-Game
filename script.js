@@ -1,3 +1,4 @@
+// Selecting all the id tags from html, declared global variables and defined an array of questions and answers
 var generateBtn = document.querySelector("#start");
 var welcomenote = document.querySelector(".welcome");
 var questionsdisplay = document.querySelector("#questions");
@@ -66,8 +67,35 @@ var questions = [
 questionsdisplay.style.display = "none";
 finalscoredisplay.style.display = "none";
 
+// This function displays the finalscore page
+function displayScore() {           
+    finalscoredisplay.style.display = "block";
+    ptagscore.textContent = "Your final score: " + timeLeft;
+    questionsdisplay.style.display = "none";
+    answerdisplay.style.display="block";
+    var initial = document.querySelector("#initial");
+  
+    submit.addEventListener("click",function(event){
+        event.preventDefault();
+
+        var initialvalue = initial.value;
+        var score = timeLeft;
+        var scorearray =[];
+        var scorearray=localStorage.getItem("scoredetails");
+        scorearray = JSON.parse(scorearray);
+        if (scorearray===null){
+            var scorearray =[];
+        }
+        console.log(scorearray);
+        scorearray.push(initialvalue,score);
+        localStorage.setItem("scoredetails", JSON.stringify(scorearray));
+        window.location.href = 'index1.html'
+    });
+}
+
+// This function populates the questions and waits for the answers (click)
 function populatevalues(){
-      ptagquestion.innerHTML = questions[i].question;
+    ptagquestion.innerHTML = questions[i].question;
     option1display.innerHTML= questions[i].answers[0].option;
     option2display.innerHTML=questions[i].answers[1].option;
     option3display.innerHTML=questions[i].answers[2].option;
@@ -83,6 +111,7 @@ function populatevalues(){
     } ); 
 }
 
+//This functon does the actual check, compares the clicked value is the right answer or not and at the end calls the final score page.
 function checkanswers(event){
     var clickedbutton = event.target.innerHTML;
     var clickedbuttonvalue;
@@ -114,29 +143,7 @@ function checkanswers(event){
     
     if (i===questions.length){ 
         clearInterval(timeInterval);
-        finalscoredisplay.style.display = "block";
-        ptagscore.textContent = "Your final score: " + timeLeft;
-        questionsdisplay.style.display = "none";
-        var initial = document.querySelector("#initial");
-      
-        submit.addEventListener("click",function(event){
-            event.preventDefault();
-
-            var scorearray = {
-                initialvalue : initial.value,
-                score: timeLeft
-            }
-            localStorage.setItem("scoredetails", JSON.stringify(scorearray));
-            // var initialvalue = initial.value;
-            // var score = timeLeft;
-            // var scorearray=[];
-            // scorearray.push(initialvalue,score);
-            // localStorage.setItem("scoredetails", JSON.stringify(scorearray));
-
-            // localStorage.setItem("initial",initial.value);
-            // localStorage.setItem("score",timeLeft);
-            window.location.href="index1.html";
-        });
+        setTimeout(displayScore, 800);
     }
 }
 
@@ -144,15 +151,17 @@ function startquiz(){
 
     welcomenote.style.display = "none";
     questionsdisplay.style.display = "block";
-    populatevalues();
-
     timeInterval = setInterval(function () {
         timeLeft--;    
         document.getElementById("h4tag").innerText = "Time Left: " + timeLeft;
-        if(timeLeft === 0){
+        if(timeLeft <= 0){
           clearInterval(timeInterval);
+          timeLeft = 0;
+          document.getElementById("h4tag").innerText = "Time Left: " + timeLeft;
+          displayScore();  
         }
     }, 1000);
+    populatevalues();
 }
 
 generateBtn.addEventListener("click",startquiz);

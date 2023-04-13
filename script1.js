@@ -3,18 +3,24 @@ orderedlist = document.querySelector('ol');
 gobackbutton = document.querySelector('#gobackbutton');
 clearbutton = document.querySelector('#clearbutton');
 
-var li1 = document.createElement("li");
-var score
-li1.textContent= localStorage.getItem("initial") + " - " + localStorage.getItem("score");
-li1.setAttribute ("style", "background-color:rgb(202, 202, 202); width:200px");
-orderedlist.append(li1);
-
+var j=1;
+var scoredetails = localStorage.getItem("scoredetails");
+scoredetails = JSON.parse(scoredetails);
+for (var i=0; i<scoredetails.length; i+=2)
+{
+    var li = document.createElement("li");
+    li.textContent = scoredetails[i] +" - " + scoredetails[j];
+    li.setAttribute ("style", "background-color:rgb(202, 202, 202); width:200px; margin-top:5px;");
+    orderedlist.append(li);
+    console.log(scoredetails[i] +" - " + scoredetails[j]);
+    j += 2;
+}
 
 gobackbutton.addEventListener('click',function(){
-    window.location.replace("index.html");
+    window.location.href="index.html";
 })
 
 clearbutton.addEventListener('click',function(){
-    li1.remove();
+    orderedlist.remove();
     localStorage.clear();
 })

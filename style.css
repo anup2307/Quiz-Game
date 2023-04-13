@@ -1,9 +1,11 @@
+/* Universal Selector */
 * {
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
 
+/* Element selector */
 header{
     display: flex;
     justify-content: space-between;
@@ -14,6 +16,8 @@ a{
     text-decoration: none;
     color: black;
 }
+
+/* Class selector */
 .welcome p{
     margin: 20px;
     width: 400px;
@@ -30,6 +34,7 @@ a{
     width: 50px;
 }
 
+/* Id selector */
 #option1:hover,
 #option2:hover,
 #option3:hover,
@@ -38,6 +43,12 @@ a{
     color:whitesmoke;
 }
 
+#option1,
+#option2,
+#option3,
+#option4{
+    margin-bottom: 5px;
+}
 #questions,
 #finalscore {
     margin-left: 300px;
