@@ -27,3 +27,6 @@ THEN I can save my initials and my score
 ```
 
 ## End Result
+The updated URL for the deplyed page - https://anup2307.github.io/Quiz-Game/
+
+## Screenshots
