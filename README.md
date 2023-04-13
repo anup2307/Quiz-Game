@@ -30,3 +30,7 @@ THEN I can save my initials and my score
 The updated URL for the deplyed page - https://anup2307.github.io/Quiz-Game/
 
 ## Screenshots
+![image](https://user-images.githubusercontent.com/124316722/231638509-968d9bc2-a738-434d-a60b-95f1cec91241.png)
+![image](https://user-images.githubusercontent.com/124316722/231638753-5d1f5753-4679-46a6-a115-ba76c59f7ec9.png)
+![image](https://user-images.githubusercontent.com/124316722/231638841-cac45a25-156e-4b48-89f2-86a4165f4694.png)
+![image](https://user-images.githubusercontent.com/124316722/231638966-814efa05-cc4c-4ba7-a3ab-1aae35149673.png)
